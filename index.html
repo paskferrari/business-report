@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Aziendale</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #F7F7F7;
+            color: #2E4053;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2E4053;
+            margin-bottom: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #000000;
+            border-bottom: 2px solid #2E4053;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .company-info, .contact-info, .stats {
+            margin-bottom: 20px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+        }
+
+        .info-row div {
+            width: 45%;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #888;
+        }
+
+        .logo {
+            display: block;
+            margin: 0 auto 20px;
+            max-width: 150px;
+        }
+
+        .stats-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .stats-list li {
+            background-color: #2E4053;
+            color: #FFFFFF;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Company Logo -->
+    <img src="logo-company.png" alt="Company Logo" class="logo">
+
+    <!-- Report Title -->
+    <h1>Report Aziendale</h1>
+
+    <!-- Company Information Section -->
+    <div class="section">
+        <div class="section-title">Dati Aziendali</div>
+        <div class="company-info">
+            <div class="info-row">
+                <div><strong>Nome dell'azienda:</strong> <span id="nomeAzienda"></span></div>
+                <div><strong>Indirizzo:</strong> <span id="indirizzo"></span></div>
+            </div>
+            <div class="info-row">
+                <div><strong>Telefono:</strong> <span id="telefono"></span></div>
+                <div><strong>Email:</strong> <span id="email"></span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Information Section -->
+    <div class="section">
+        <div class="section-title">Contatti</div>
+        <div class="contact-info">
+            <div class="info-row">
+                <div><strong>Contatto Principale:</strong> <span id="contattoPrincipale"></span></div>
+                <div><strong>Ruolo:</strong> <span id="ruolo"></span></div>
+            </div>
+            <div class="info-row">
+                <div><strong>Telefono:</strong> <span id="telefonoContatto"></span></div>
+                <div><strong>Email:</strong> <span id="emailContatto"></span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistics Section -->
+    <div class="section">
+        <div class="section-title">Statistiche</div>
+        <ul class="stats-list">
+            <li><span>Fatturato Annue</span> <span id="fatturato"></span></li>
+            <li><span>Numero di Dipendenti</span> <span id="dipendenti"></span></li>
+            <li><span>Altre statistiche rilevanti</span> <span id="altreStatistiche"></span></li>
+        </ul>
+    </div>
+
+    <!-- Footer with logo -->
+    <div class="footer">
+        <p>Powered by <img src="tech-company-logo.png" alt="Technology Logo" class="logo"></p>
+    </div>
+</div>
+
+<script>
+    // Function to get URL parameters
+    function getQueryParams() {
+        const params = {};
+        window.location.search.substring(1).split("&").forEach(pair => {
+            const [key, value] = pair.split("=");
+            if (key) {
+                params[decodeURIComponent(key)] = decodeURIComponent(value || '');
+            }
+        });
+        return params;
+    }
+
+    // Populate the HTML with URL parameters
+    window.onload = function() {
+        const params = getQueryParams();
+        document.getElementById('nomeAzienda').textContent = params.nomeAzienda || 'N/A';
+        document.getElementById('indirizzo').textContent = params.indirizzo || 'N/A';
+        document.getElementById('telefono').textContent = params.telefono || 'N/A';
+        document.getElementById('email').textContent = params.email || 'N/A';
+        document.getElementById('contattoPrincipale').textContent = params.contattoPrincipale || 'N/A';
+        document.getElementById('ruolo').textContent = params.ruolo || 'N/A';
+        document.getElementById('telefonoContatto').textContent = params.telefonoContatto || 'N/A';
+        document.getElementById('emailContatto').textContent = params.emailContatto || 'N/A';
+        document.getElementById('fatturato').textContent = params.fatturato || 'N/A';
+        document.getElementById('dipendenti').textContent = params.dipendenti || 'N/A';
+        document.getElementById('altreStatistiche').textContent = params.altreStatistiche || 'N/A';
+    };
+</script>
+
+</body>
+</html>
