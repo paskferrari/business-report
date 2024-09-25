@@ -4,136 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report Aziendale</title>
-    <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #F7F7F7;
-            color: #2E4053;
-            margin: 0;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #FFFFFF;
-            padding: 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            text-align: center;
-            color: #2E4053;
-            margin-bottom: 40px;
-        }
-
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section-title {
-            font-size: 1.5em;
-            color: #000000;
-            border-bottom: 2px solid #2E4053;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-
-        .company-info, .contact-info, .stats {
-            margin-bottom: 20px;
-        }
-
-        .info-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 5px 0;
-        }
-
-        .info-row div {
-            width: 45%;
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 50px;
-            color: #888;
-        }
-
-        .logo {
-            display: block;
-            margin: 0 auto 20px;
-            max-width: 150px;
-        }
-
-        .stats-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .stats-list li {
-            background-color: #2E4053;
-            color: #FFFFFF;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            display: flex;
-            justify-content: space-between;
-        }
-    </style>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <div class="container">
-    <!-- Company Logo -->
-    <img src="logo-company.png" alt="Company Logo" class="logo">
+    <header>
+        <img src="logo-company.png" alt="Company Logo" class="logo">
+    </header>
 
-    <!-- Report Title -->
-    <h1>Report Aziendale</h1>
+    <h1 class="report-title">Report Aziendale</h1>
 
     <!-- Company Information Section -->
-    <div class="section">
-        <div class="section-title">Dati Aziendali</div>
-        <div class="company-info">
-            <div class="info-row">
-                <div><strong>Nome dell'azienda:</strong> <span id="nomeAzienda"></span></div>
-                <div><strong>Indirizzo:</strong> <span id="indirizzo"></span></div>
+    <section class="company-info">
+        <h2>Dati Aziendali</h2>
+        <div class="info-grid">
+            <div><strong>Nome dell'azienda:</strong> <span id="nomeAzienda"></span></div>
+            <div><strong>Indirizzo:</strong> <span id="indirizzo"></span></div>
+            <div><strong>Partita IVA:</strong> <span id="partitaIva"></span></div>
+            <div><strong>Codice Fiscale:</strong> <span id="codiceFiscale"></span></div>
+            <div><strong>Fatturato:</strong> <span id="fatturato"></span></div>
+            <div><strong>EBITDA:</strong> <span id="ebitda"></span></div>
+            <div><strong>EBIT:</strong> <span id="ebit"></span></div>
+            <div><strong>Sede Legale:</strong> <span id="sedeLegale"></span></div>
+        </div>
+    </section>
+
+    <!-- Financial Analysis Section -->
+    <section class="financial-analysis">
+        <h2>Analisi Bilancio e KPI</h2>
+        <div class="analysis-grid">
+            <div>
+                <strong>Totale Attivo:</strong> <span id="totaleAttivo"></span>
             </div>
-            <div class="info-row">
-                <div><strong>Telefono:</strong> <span id="telefono"></span></div>
-                <div><strong>Email:</strong> <span id="email"></span></div>
+            <div>
+                <strong>Totale Passivo:</strong> <span id="totalePassivo"></span>
+            </div>
+            <div>
+                <strong>Patrimonio Netto:</strong> <span id="patrimonioNetto"></span>
+            </div>
+            <div>
+                <strong>Disponibilità Liquide:</strong> <span id="disponibilitaLiquide"></span>
+            </div>
+            <div>
+                <strong>Totale Debiti:</strong> <span id="totaleDebiti"></span>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Contact Information Section -->
-    <div class="section">
-        <div class="section-title">Contatti</div>
-        <div class="contact-info">
-            <div class="info-row">
-                <div><strong>Contatto Principale:</strong> <span id="contattoPrincipale"></span></div>
-                <div><strong>Ruolo:</strong> <span id="ruolo"></span></div>
-            </div>
-            <div class="info-row">
-                <div><strong>Telefono:</strong> <span id="telefonoContatto"></span></div>
-                <div><strong>Email:</strong> <span id="emailContatto"></span></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Statistics Section -->
-    <div class="section">
-        <div class="section-title">Statistiche</div>
-        <ul class="stats-list">
-            <li><span>Fatturato Annue</span> <span id="fatturato"></span></li>
-            <li><span>Numero di Dipendenti</span> <span id="dipendenti"></span></li>
-            <li><span>Altre statistiche rilevanti</span> <span id="altreStatistiche"></span></li>
+    <!-- KPI Performance Section -->
+    <section class="kpi-performance">
+        <h2>Performance KPI</h2>
+        <ul class="kpi-list">
+            <li><strong>KPI 1:</strong> <span id="kpi1"></span></li>
+            <li><strong>KPI 2:</strong> <span id="kpi2"></span></li>
+            <li><strong>KPI 3:</strong> <span id="kpi3"></span></li>
         </ul>
-    </div>
+    </section>
 
-    <!-- Footer with logo -->
-    <div class="footer">
-        <p>Powered by <img src="tech-company-logo.png" alt="Technology Logo" class="logo"></p>
-    </div>
+    <!-- Footer Section -->
+    <footer>
+        <p>Report generato da PractiFlow - Area Finanza Spa</p>
+        <p class="small-text">Distribuzione limitata agli utenti autorizzati.</p>
+    </footer>
 </div>
 
 <script>
@@ -154,15 +88,20 @@
         const params = getQueryParams();
         document.getElementById('nomeAzienda').textContent = params.nomeAzienda || 'N/A';
         document.getElementById('indirizzo').textContent = params.indirizzo || 'N/A';
-        document.getElementById('telefono').textContent = params.telefono || 'N/A';
-        document.getElementById('email').textContent = params.email || 'N/A';
-        document.getElementById('contattoPrincipale').textContent = params.contattoPrincipale || 'N/A';
-        document.getElementById('ruolo').textContent = params.ruolo || 'N/A';
-        document.getElementById('telefonoContatto').textContent = params.telefonoContatto || 'N/A';
-        document.getElementById('emailContatto').textContent = params.emailContatto || 'N/A';
+        document.getElementById('partitaIva').textContent = params.partitaIva || 'N/A';
+        document.getElementById('codiceFiscale').textContent = params.codiceFiscale || 'N/A';
         document.getElementById('fatturato').textContent = params.fatturato || 'N/A';
-        document.getElementById('dipendenti').textContent = params.dipendenti || 'N/A';
-        document.getElementById('altreStatistiche').textContent = params.altreStatistiche || 'N/A';
+        document.getElementById('ebitda').textContent = params.ebitda || 'N/A';
+        document.getElementById('ebit').textContent = params.ebit || 'N/A';
+        document.getElementById('sedeLegale').textContent = params.sedeLegale || 'N/A';
+        document.getElementById('totaleAttivo').textContent = params.totaleAttivo || 'N/A';
+        document.getElementById('totalePassivo').textContent = params.totalePassivo || 'N/A';
+        document.getElementById('patrimonioNetto').textContent = params.patrimonioNetto || 'N/A';
+        document.getElementById('disponibilitaLiquide').textContent = params.disponibilitaLiquide || 'N/A';
+        document.getElementById('totaleDebiti').textContent = params.totaleDebiti || 'N/A';
+        document.getElementById('kpi1').textContent = params.kpi1 || 'N/A';
+        document.getElementById('kpi2').textContent = params.kpi2 || 'N/A';
+        document.getElementById('kpi3').textContent = params.kpi3 || 'N/A';
     };
 </script>
 
